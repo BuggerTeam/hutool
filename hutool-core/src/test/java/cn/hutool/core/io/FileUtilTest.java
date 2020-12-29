@@ -377,4 +377,18 @@ public class FileUtilTest {
 		String mimeType = FileUtil.getMimeType("test2Write.jpg");
 		Assert.assertEquals("image/jpeg", mimeType);
 	}
+
+	@Test
+	public void isSubTest() {
+		File file = new File("d:/test");
+		File file2 = new File("d:/test2/aaa");
+		Assert.assertFalse(FileUtil.isSub(file, file2));
+	}
+
+	@Test
+	public void isSubRelativeTest() {
+		File file = new File("..");
+		File file2 = new File(".");
+		Assert.assertTrue(FileUtil.isSub(file, file2));
+	}
 }
